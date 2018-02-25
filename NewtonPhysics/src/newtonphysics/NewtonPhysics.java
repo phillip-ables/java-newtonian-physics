@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class NewtonPhysics {
     //future classes
-    static double findDisplacement(double incline, double friction, double time){
+    static double FrictionRampNullMass(double incline, double friction, double time){
         System.out.println("Finding Displacement");
-        
+        double wX, wY, Fnormal, Ffriction;
+        double g = 9.8;
+        double acceleration, displacement;
         //CLASS NOTES
         //break into x and y components
             //wx -> wsintheta -> mg sin theta
@@ -18,8 +20,21 @@ public class NewtonPhysics {
             //everything has mass
         //neg coefficient friction times g cos theta + g sin theta equals acceleration
         
+        //first break weight into its x and y components
+        wX = g * (Math.sin(Math.toRadians(incline)));
+        wY = g * (Math.cos(Math.toRadians(incline)));
         
-        return 5.0;
+        //find normal to set friction
+        Fnormal = wY;
+        Ffriction = Fnormal * friction;
+        
+        //acceleration equals net force, only x direction is unequal
+        acceleration = wX - Ffriction;
+        displacement = 0.5 * acceleration * (time * time);
+        
+        System.out.println(acceleration);
+        
+        return displacement;
     }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -44,8 +59,9 @@ public class NewtonPhysics {
         delay(4000);
         System.out.println("hmmmmm?");
         delay(2000);
-        findDisplacement(degreeIncline, frictionalCoefficient, targetTime);
+        anDistance = FrictionRampNullMass(degreeIncline, frictionalCoefficient, targetTime);
         
+        System.out.println("Your total displacement after "+targetTime+" seconds is : "+anDistance+" m");
     }    
     public static void delay(int millis){
         try{
