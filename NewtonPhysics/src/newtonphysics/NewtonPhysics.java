@@ -6,6 +6,19 @@ public class NewtonPhysics {
     //future classes
     static double findDisplacement(double incline, double friction, double time){
         System.out.println("Finding Displacement");
+        
+        //CLASS NOTES
+        //break into x and y components
+            //wx -> wsintheta -> mg sin theta
+            //wy -> wcostheta -> mg cos theta
+        //sumation of fy = Force normal - mg cos theta --> F subn = mg cos theta
+        //sumation of fx = magnitude friction + mg sin 30 = ma
+            //magnitude of friction = coeficient friction times the contact force normal
+        //-coefficient of friction time Fnormal plus m g sin theta = m a
+            //everything has mass
+        //neg coefficient friction times g cos theta + g sin theta equals acceleration
+        
+        
         return 5.0;
     }
     public static void main(String[] args) {
