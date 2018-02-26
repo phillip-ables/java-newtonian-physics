@@ -21,6 +21,12 @@ public class NewtonPhysics {
         //neg coefficient friction times g cos theta + g sin theta equals acceleration
         
         //first break weight into its x and y component
+        wX = g * (Math.sin(Math.toRadians(incline)));
+        wY = g * (Math.cos(Math.toRadians(incline)));
+        Fnormal = wY;
+        Ffriction = Fnormal * friction;
+        
+        acceleration = wX - Ffriction;      
         displacement = 0.5 * acceleration * (time * time);
         
         System.out.println(acceleration);
@@ -31,7 +37,15 @@ public class NewtonPhysics {
         //the forces acting on the mass1 block are whats important
         double tX, tY, F1normal, Ffriction;
         double g = 9.8;
-        double targetDistance, acceleration, velocity;
+        double acceleration, velocity;
+        //first we need the values for the acting forces
+        //break tension into its x and y components
+        tX = mass2 * g * (Math.sin(Math.toRadians(degreeIncline)));
+        tY = mass2 * g * (Math.cos(Math.toRadians(degreeIncline)));
+        F1normal = mass1 * g;
+        acceleration = (tX - ((F1normal+tY)*frictionalCoefficient)) / mass1;
+        
+        
     }
             
             
